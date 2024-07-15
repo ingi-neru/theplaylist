@@ -13,16 +13,17 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
+app.set("static", path.join(process.cwd(), "static"));
 app.set("views", path.join(process.cwd(), "views"));
 app.use("/", mainRouter);
 app.use(
-  session({
-    secret: "142e6ecf42884f03",
-    resave: false,
-    saveUninitialized: true,
-  }),
+    session({
+        secret: "142e6ecf42884f03",
+        resave: false,
+        saveUninitialized: true,
+    }),
 );
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

@@ -4,9 +4,8 @@
   <body>
   <div class="container">
     <%- include('partials/search') %>
-        <% artists.forEach(function(artist) { %>
+        <% albums.forEach(function(album) { %>
             <div class="artist">
-                <h2 class="artist.name"><a href="/artist/<%= artist.name %>"><%= artist.name %></a></h2>
         <% }); %>
         </div>
     </div>
