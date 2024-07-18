@@ -1,14 +1,19 @@
+
 <!DOCTYPE html>
 <html>
   <%- include('partials/head', { title }) %>
   <body>
-  <div class="container">
-    <%- include('partials/search') %>
+    <div class="container">
+      <%- include('partials/search') %>
+      <div class="artist-cards">
         <% artists.forEach(function(artist) { %>
-            <div class="artist">
-                <h2 class="artist.name"><a href="/artist/<%= artist.name %>"><%= artist.name %></a></h2>
+        <a href="/artists/<%= encodeURIComponent(artist.name) %>">
+          <div class="artist-card">
+              <img src="<%= artist.photoUrl %>" alt="<%= artist.name %>">
+          </div>
+        </a>
         <% }); %>
-        </div>
+      </div>
     </div>
   </body>
 </html>

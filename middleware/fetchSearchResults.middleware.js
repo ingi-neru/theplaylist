@@ -6,5 +6,6 @@ export default async function fetchSearchResults(req, res, next) {
   const client = createClient();
   const result = await queryFromString(client, q);
   req.result = result;
+  console.log(result);
   next();
 }

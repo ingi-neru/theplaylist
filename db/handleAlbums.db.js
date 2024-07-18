@@ -183,8 +183,17 @@ export async function queryFromString(client, searchString) {
       title: song.songTitle,
       class: "song",
       description: `song from album ${song.albumTitle}`,
+      fromAlbum: song.albumTitle,
     })),
   ];
 
   return results.slice(0, 10);
+}
+
+export async function queryArtist(client, name) {
+  const database = client.db("theplaylist");
+  const collection = database.collection("artists");
+  const query = { name: name };
+  const result = await collection.findOne(query);
+  return result;
 }

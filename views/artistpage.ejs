@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html>
-  <%- include('partials/head', { title }) %>
+<html lang="en">
+  <%- include('partials/head', { title: artist.name }) %>
   <body>
-  <div class="container">
-    <%- include('partials/search') %>
-        <% albums.forEach(function(album) { %>
-            <div class="artist">
+    <div class="container">
+      <header>
+        <h1><%= artist.name %></h1>
+      </header>
+      <section class="albums">
+        <% artist.albums.forEach(function(album) { %>
+          <div class="album-card">
+            <h2><%= album.title %></h2>
+            <p><%= album.description.trim() %></p>
+          </div>
         <% }); %>
-        </div>
+      </section>
     </div>
   </body>
 </html>
